@@ -4,16 +4,16 @@ const express = require('express'),
 const app = express();
 
 const movieArray = [
-  {Title: 'Tropic Thunder', Director: 'Ben Stiller', Genre: 'Comedy/Action'},
-  {Title: 'Happy Gilmore', Director: 'Dennis Dugan', Genre: 'Comedy/Romance'},
-  {Title: 'Iron Man', Director: 'Jon Favreau', Genre: 'Action/Adventure'},
-  {Title: 'Thor: Ragnarok', Director: 'Taika Waititi', Genre: 'Action/Adventure'},
-  {Title: 'Grown Ups', Director: 'Dennis Dugan', Genre: 'Comedy/Buddy'},
-  {Title: 'The Fast and The Furious', Director: 'Rob Cohen', Genre: 'Action/Crime'},
-  {Title: 'Avengers: Endgame', Director: 'Anthony & Joe Russo', Genre: 'Action/Sci-fi'},
-  {Title: 'Avengers: Infinity War', Director: 'Anthony & Joe Russo', Genre: 'Action/Sci-fi'},
-  {Title: 'Step Brothers', Director: 'Adam McKay', Genre: 'Comedy'},
-  {Title: 'The Other Guys', Director: 'Adam McKay', Genre: 'Comedy/Action'}
+  {title: 'Tropic Thunder', director: 'Ben Stiller', genre: 'Comedy/Action'},
+  {title: 'Happy Gilmore', director: 'Dennis Dugan', genre: 'Comedy/Romance'},
+  {title: 'Iron Man', director: 'Jon Favreau', genre: 'Action/Adventure'},
+  {title: 'Thor: Ragnarok', director: 'Taika Waititi', genre: 'Action/Adventure'},
+  {title: 'Grown Ups', director: 'Dennis Dugan', genre: 'Comedy/Buddy'},
+  {title: 'The Fast and The Furious', director: 'Rob Cohen', genre: 'Action/Crime'},
+  {title: 'Avengers: Endgame', director: 'Anthony & Joe Russo', genre: 'Action/Sci-fi'},
+  {title: 'Avengers: Infinity War', director: 'Anthony & Joe Russo', genre: 'Action/Sci-fi'},
+  {title: 'Step Brothers', director: 'Adam McKay', genre: 'Comedy'},
+  {title: 'The Other Guys', director: 'Adam McKay', genre: 'Comedy/Action'}
 ];
 
 app.use(morgan('common'));
@@ -28,7 +28,7 @@ app.get('/', function(_req, res) {
   res.send('Welcome to my app!');
 });
 
-app.use((err, _req, res) => {
+app.use((err, _req, res, _next) => {
   console.error(err.stack);
   res.status(500).send('something broke!');
 });
