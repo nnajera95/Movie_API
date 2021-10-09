@@ -5,17 +5,17 @@ const app = express();
 
 app.use(morgan('common'));
 
-app.get('/movies', function(req, res, next) {
+app.use(express.static('public'));
+
+app.get('/movies', function(_req, _res) {
   next();
 });
 
-app.get('/', function(req, res, next) {
+app.get('/', function(_req, res) {
   res.send('Welcome to my app!');
 });
 
-app.use(express.static('public'));
-
-app.use((err, req, res, next) => {
+app.use((err, _req, res) => {
   console.error(err.stack);
   res.status(500).send('something broke!');
 });
