@@ -3,12 +3,25 @@ const express = require('express'),
 
 const app = express();
 
+const movieArray = [
+  {Title: 'Tropic Thunder', Director: 'Ben Stiller', Genre: 'Comedy/Action'},
+  {Title: 'Happy Gilmore', Director: 'Dennis Dugan', Genre: 'Comedy/Romance'},
+  {Title: 'Iron Man', Director: 'Jon Favreau', Genre: 'Action/Adventure'},
+  {Title: 'Thor: Ragnarok', Director: 'Taika Waititi', Genre: 'Action/Adventure'},
+  {Title: 'Grown Ups', Director: 'Dennis Dugan', Genre: 'Comedy/Buddy'},
+  {Title: 'The Fast and The Furious', Director: 'Rob Cohen', Genre: 'Action/Crime'},
+  {Title: 'Avengers: Endgame', Director: 'Anthony & Joe Russo', Genre: 'Action/Sci-fi'},
+  {Title: 'Avengers: Infinity War', Director: 'Anthony & Joe Russo', Genre: 'Action/Sci-fi'},
+  {Title: 'Step Brothers', Director: 'Adam McKay', Genre: 'Comedy'},
+  {Title: 'The Other Guys', Director: 'Adam McKay', Genre: 'Comedy/Action'}
+];
+
 app.use(morgan('common'));
 
 app.use(express.static('public'));
 
-app.get('/movies', function(_req, _res) {
-  next();
+app.get('/movies', function(_req, res) {
+  res.json(movieArray)
 });
 
 app.get('/', function(_req, res) {
