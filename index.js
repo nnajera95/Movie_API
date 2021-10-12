@@ -20,13 +20,21 @@ app.use(morgan('common'));
 
 app.use(express.static('public'));
 
+app.get('/', function(_req, res) {
+  res.send('Welcome to my app!');
+});
+
 app.get('/movies', function(_req, res) {
   res.json(movieArray)
 });
 
-app.get('/', function(_req, res) {
-  res.send('Welcome to my app!');
+app.get('/movies/:title', (req, res) => {
+  res.json(movies.find(title => {
+    return title.name === req.params.title
+  }));
 });
+
+
 
 app.use((err, _req, res, _next) => {
   console.error(err.stack);
