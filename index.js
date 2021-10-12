@@ -34,6 +34,11 @@ app.get('/movies/:title', (req, res) => {
   }));
 });
 
+app.get('/movies/:genre', (req, res) => {
+  res.json(movies.find(genre => {
+    return genre.name === req.params.genre
+  }));
+});
 
 
 app.use((err, _req, res, _next) => {
