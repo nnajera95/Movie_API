@@ -40,6 +40,11 @@ app.get('/movies/:genre', (req, res) => {
   }));
 });
 
+app.get('/movies/director', (req, res) => {
+  res.json(movies.find(director => {
+    return director.name === req.params.director
+  }));
+});
 
 app.use((err, _req, res, _next) => {
   console.error(err.stack);
