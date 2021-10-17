@@ -66,9 +66,20 @@ app.put('/account/:information/:update', (req, res) => {
 
   if (user) {
     user.information[req.params.information] = parseInt(req.params.update);
-    res.status(201).send('account information ' + req.params.name + ' username was updated ')
+    res.status(201).send('account information ' + req.params.name + ' username was updated.')
   } else {
       res.status(404).send('account with username ' + req.params.name + ' was not found')
+  }
+});
+
+app.put('/account/:favorite/:add', (req, res) => {
+  let account = account.find((user) => {
+    return user.name === req.params.name
+  });
+
+  if (user) {
+    user.favorite[req.params.favorite] = parseInt(req.params.add);
+    res.status(201).send('movie added ' + req.params.name + ' to favorites.')
   }
 });
 
