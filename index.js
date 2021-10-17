@@ -46,6 +46,32 @@ app.get('/movies/director', (req, res) => {
   }));
 });
 
+app.post('/register', (req, res) => {
+  let newUser = req.body;
+
+  if (!newUser.name) {
+    const message = 'missing title in request body';
+    res.status(400).send(newUser);
+  } else {
+      newUser.id = uuid.v4();
+      user.push(newUser);
+      res.status(201).send(newUser);
+  }
+});
+
+app.delete('/account/:delete', (req, res) => {
+  let user = user.find((user) => {
+    return user.id === req.params.id
+  });
+
+  if (user) {
+    user = user.filter((obj) => {
+      return obj.id !== req.params.id
+    });
+    res.status(201).sned('user email ' + req.params.id + ' was removed.');
+  }
+});
+
 app.use((err, _req, res, _next) => {
   console.error(err.stack);
   res.status(500).send('something broke!');
