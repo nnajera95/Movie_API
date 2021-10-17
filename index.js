@@ -83,6 +83,17 @@ app.put('/account/:favorite/:add', (req, res) => {
   }
 });
 
+app.put('/account/:favorite/:remove', (req, res) => {
+  let account = account.find((user) => {
+    return user.name === req.params.name
+  });
+
+  if (user) {
+    user.favorite[req.params.favorite] = parseInt(req.params.remove);
+    res.status(201).send('movie removed ' + req.params.name + ' from favorites.')
+  }
+});
+
 app.delete('/account/:delete', (req, res) => {
   let account = account.find((account) => {
     return account.username === req.params.username
