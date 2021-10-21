@@ -29,20 +29,20 @@ app.get('/movies', function(_req, res) {
 });
 
 app.get('/movies/:title', (req, res) => {
-  res.json(movieArray.find(movieArray => {
-    return movieArray.title === req.params.title
+  res.json(movieArray.find(movie => {
+    return movie.title.toLowerCase() === req.params.title.toLowerCase();
   }));
 });
 
 app.get('/movies/:genre', (req, res) => {
-  res.json(movieArray.find(movieArray => {
-    return movieArray.genre === req.params.genre
+  res.json(movieArray.find(movie => {
+    return movie.genre === req.params.genre
   }));
 });
 
 app.get('/movies/:director', (req, res) => {
-  res.json(movieArray.find(movieArray => {
-    return movieArray.director === req.params.director
+  res.json(movieArray.find(movie => {
+    return movie.director === req.params.director
   }));
 });
 
