@@ -15,30 +15,39 @@
     <table>
       <tr>
         <td> /movies </td>
+        <td>this endpoint will return a list of all movies</td>
       </tr>
       <tr>
         <td> /movies/[title] </td>
+        <td>this endpoint will return a specific movie that has been searched</td>
       </tr>
       <tr>
-        <td> /movies/[genre] </td>
+        <td> /movies/[genre]/[genreName] </td>
+        <td>this endpoint will return a list of all the genres for movies</td>
       </tr>
       <tr>
-        <td> /movies/[director] </td>
+        <td> /movies/genre/[director] </td>
+        <td>this endpoint will return a list of different directors from a specific genre</td>
       </tr>
       <tr>
         <td> /register </td>
+        <td>this endpoint will allow a new user to register for an account</td>
       </tr>
       <tr>
-        <td> /account/[information]</td>
+        <td> /account/[information]/[update]</td>
+        <td>this endpoint will return a users account information and allow them to update it</td>
       </tr>
       <tr>
         <td> /account/[delete]</td>
+        <td>this endpoint will give the user the ability to delete their account</td>
       </tr>
       <tr>
-        <td> /movies/[favorites]/[add] </td>
+        <td> /account/[favorites]/[add] </td>
+        <td>this endpoint will allow a user to add a movie to their favorites list</td>
       </tr>
       <tr>
-        <td> /movies/[favorites]/[remove] </td>
+        <td> /account/[favorites]/[remove] </td>
+        <td>this endpoint will allow a user to remove a movie to their favorites list</td>
       </tr>
     </table>
   </body>
