@@ -34,13 +34,13 @@ app.get('/movies/:title', (req, res) => {
   }));
 });
 
-app.get('/movies/:genre', (req, res) => {
+app.get('/movies/genre/:genreName', (req, res) => {
   res.json(movieArray.find((movie) => {
     return movie.genre === req.params.genre
   }));
 });
 
-app.get('/movies/:director', (req, res) => {
+app.get('/movies/genre/:director', (req, res) => {
   res.json(movieArray.find((movie) => {
     return movie.director === req.params.director
   }));
