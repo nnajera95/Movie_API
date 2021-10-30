@@ -34,15 +34,15 @@ app.get('/movies/:title', (req, res) => {
   }));
 });
 
-app.get('/movies/genre/:genreName', (req, res) => {
+app.get('/movies/:genre', (req, res) => {
   res.json(movieArray.find((movie) => {
     return movie.genre === req.params.genre
   }));
 });
 
-app.get('/movies/genre/:director', (req, res) => {
+app.get('/movies/directors/:directorName', (req, res) => {
   res.json(movieArray.find((movie) => {
-    return movie.director === req.params.director
+    return movie.director === req.params.directorName
   }));
 });
 
@@ -59,17 +59,9 @@ app.post('/register', (req, res) => {
   }
 });
 
-app.put('/account/:information/:update', (req, res) => {
-  let account = account.find((user) => {
-    return user.name === req.params.name
-  });
-
-  if (user) {
-    user.information[req.params.information] = parseInt(req.params.update);
-    res.status(201).send('account information ' + req.params.name + ' username was updated.')
-  } else {
-      res.status(404).send('account with username ' + req.params.name + ' was not found')
-  }
+app.put('/account/:userId', (req, res) => {
+  res.send('Ready to update user id:')
+  $;{req.params.userId};
 });
 
 app.put('/account/:favorite/:add', (req, res) => {
