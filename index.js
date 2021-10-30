@@ -40,7 +40,7 @@ app.get('/movies/:genreName', (req, res) => {
   }));
 });
 
-app.get('/movies/directors/:directorName', (req, res) => {
+app.get('/movies/director/:directorName', (req, res) => {
   res.json(movieArray.find((movie) => {
     return movie.director === req.params.directorName
   }));
