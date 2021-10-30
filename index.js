@@ -36,11 +36,11 @@ app.get('/movies/:title', (req, res) => {
 
 app.get('/movies/:genreName', (req, res) => {
   res.json(movieArray.find((movie) => {
-    return movie.genre === req.params.genreName
+    return movie.genreName === req.params.genreName
   }));
 });
 
-app.get('/movies/director/:directorName', (req, res) => {
+app.get('/movies/:director', (req, res) => {
   res.json(movieArray.find((movie) => {
     return movie.director === req.params.directorName
   }));
