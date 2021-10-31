@@ -34,16 +34,26 @@ app.get('/movies/:title', (req, res) => {
   }));
 });
 
-app.get('/movies/:genreName', (req, res) => {
-  res.json(movieArray.find((movie) => {
-    return movie.genreName === req.params.genreName
-  }));
+//app.get('/movies/:title/:genre', (req, res) => {
+  //res.json(movieArray.find((movie) => {
+    //return movie.genre === req.params.genre
+  //}));
+//});
+
+app.get('/movies/:title/:genre', (_req, res) => {
+  res.send('returns data about a genre')
+  $;{req.params.genre};
 });
 
-app.get('/movies/:director', (req, res) => {
-  res.json(movieArray.find((movie) => {
-    return movie.director === req.params.director
-  }));
+//app.get('/movies/:title/:director', (req, res) => {
+//  res.json(movieArray.find((movie) => {
+//    return movie.director === req.params.director
+//  }));
+//});
+
+app.get('/director/:bio', (_req, res) => {
+  res.send('returns data about a director')
+  $;{req.params.director};
 });
 
 app.post('/register', (_req, res) => {
