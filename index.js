@@ -42,7 +42,7 @@ app.get('/movies/:genreName', (req, res) => {
 
 app.get('/movies/:director', (req, res) => {
   res.json(movieArray.find((movie) => {
-    return movie.director === req.params.directorName
+    return movie.director === req.params.director
   }));
 });
 
@@ -55,12 +55,12 @@ app.put('/account/:userId', (req, res) => {
   $;{req.params.userId};
 });
 
-app.put('/account/:favorite/:add', (req, res) => {
+app.put('/:add/:favorite', (req, res) => {
   res.send('movie added to favorites')
   $;{req.params.title}
 });
 
-app.put('/account/:favorite/:remove', (req, res) => {
+app.put('/:remove/:favorite', (req, res) => {
   res.send('movie removed from favorites')
   $;{req.params.title}
 });
