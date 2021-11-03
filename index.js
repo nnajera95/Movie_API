@@ -40,7 +40,7 @@ app.get('/movies/:title', (req, res) => {
   //}));
 //});
 
-app.get('/movies/:title/:genre', (_req, res) => {
+app.get('/movies/:genre', (_req, res) => {
   res.send('returns data about a genre')
 });
 
@@ -50,7 +50,7 @@ app.get('/movies/:title/:genre', (_req, res) => {
 //  }));
 //});
 
-app.get('/director/:bio', (_req, res) => {
+app.get('/directors/:name', (_req, res) => {
   res.send('returns data about a director')
 });
 
@@ -62,11 +62,11 @@ app.put('/account/:userId', (_req, res) => {
   res.send('Ready to update user id:')
 });
 
-app.put('/:add/:favorite', (_req, res) => {
+app.put('/account/:movieId', (_req, res) => {
   res.send('movie added to favorites')
 });
 
-app.put('/:remove/:favorite', (_req, res) => {
+app.put('/account/:movieId', (_req, res) => {
   res.send('movie removed from favorites')
 });
 
