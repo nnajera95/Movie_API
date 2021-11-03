@@ -42,7 +42,6 @@ app.get('/movies/:title', (req, res) => {
 
 app.get('/movies/:title/:genre', (_req, res) => {
   res.send('returns data about a genre')
-  $;{req.params.genre};
 });
 
 //app.get('/movies/:title/:director', (req, res) => {
@@ -53,26 +52,22 @@ app.get('/movies/:title/:genre', (_req, res) => {
 
 app.get('/director/:bio', (_req, res) => {
   res.send('returns data about a director')
-  $;{req.params.director};
 });
 
 app.post('/register', (_req, res) => {
   res.send('ready to add user')
 });
 
-app.put('/account/:userId', (req, res) => {
+app.put('/account/:userId', (_req, res) => {
   res.send('Ready to update user id:')
-  $;{req.params.userId};
 });
 
-app.put('/:add/:favorite', (req, res) => {
+app.put('/:add/:favorite', (_req, res) => {
   res.send('movie added to favorites')
-  $;{req.params.title}
 });
 
-app.put('/:remove/:favorite', (req, res) => {
+app.put('/:remove/:favorite', (_req, res) => {
   res.send('movie removed from favorites')
-  $;{req.params.title}
 });
 
 app.delete('/account/:delete', (_req, res) => {
