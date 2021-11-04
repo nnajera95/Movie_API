@@ -24,46 +24,66 @@
         <td> /movies </td>
         <td>this endpoint will return a list of all movies</td>
         <td>get</td>
+        <td></td>
+        <td>res.json(movieArray)</td>
       </tr>
       <tr>
         <td> /movies/[title] </td>
         <td>this endpoint will return a specific movie that has been searched</td>
         <td>get</td>
+        <td></td>
+        <td>
+          {"title": "Happy Gilmore", "director": "Dennis Dugan", "genre": "Comedy/Romance"}
+        </td>
       </tr>
       <tr>
         <td> /movies/genre/[genre] </td>
         <td>this endpoint will return a genre with a list of movies in this category</td>
         <td>get</td>
+        <td></td>
+        <td>res.send('returns data about a genre')</td>
       </tr>
       <tr>
-        <td> /director/bio </td>
+        <td> /directors/name </td>
         <td>this endpoint will return data about a director (bio, birth year, death) </td>
         <td>get</td>
+        <td></td>
+        <td>res.send('returns data about a director')</td>
       </tr>
       <tr>
         <td> /register </td>
         <td>this endpoint will allow a new user to register for an account</td>
         <td>post</td>
+        <td>{"newUser": "user information"}</td>
+        <td>res.send('ready to add user')</td>
       </tr>
       <tr>
         <td> /account/[userId]</td>
         <td>this endpoint will return a users account information and allow them to update it</td>
         <td>put</td>
-      </tr>
-      <tr>
-        <td> /account/movies/movieId</td>
-        <td>this endpoint will give the user the ability to delete their account</td>
-        <td>post</td>
+        <td>{"UserId": "new userName"}</td>
+        <td>res.send('Ready to update user id:')</td>
       </tr>
       <tr>
         <td> /account/movies/movieId </td>
         <td>this endpoint will allow a user to add a movie to their favorites list</td>
-        <td>delete</td>
+        <td>post</td>
+        <td>{"favoriteList": "movie to add"}</td>
+        <td>res.send('movie added from favorites')</td>
       </tr>
       <tr>
-        <td> /remove/[favorite] </td>
+        <td> /account/movies/movieId </td>
         <td>this endpoint will allow a user to remove a movie to their favorites list</td>
         <td>delete</td>
+        <td></td>
+        <td>res.send('movie removed from favorites')</td>
+      </tr>
+      <tr>
+        <td> /account/delete</td>
+        <td>this endpoint will give the user the ability to delete their account</td>
+        <td>delete</td>
+        <td></td>
+        <td>res.send('account deleted')</td>
       </tr>
     </table>
   </body>
