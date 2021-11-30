@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const models = require('./models.js');
+const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -70,7 +70,7 @@ app.post('/users', (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.Username + 'already exists');
+        return res.status(400).send(req.body.Username + ' already exists');
       } else {
         Users
           .create({
@@ -91,7 +91,7 @@ app.post('/users', (req, res) => {
     });
 });
 
-app.get('/users', (req, res) => {
+app.get('/users', (_req, res) => {
   Users.find()
     .then((users) => {
       res.status(201).json(users);
@@ -113,12 +113,44 @@ app.get('/users/:Username', (req, res) => {
     });
 });
 
+app.put('/users/:Username', (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
+$set:
+  {
+    Username: req.body.Username,
+    Password: req.body.Password,
+    Email: req.body.Email,
+    Birthday: req.body.Birthday
+  }
+  },
+  { new: true },
+  (err, updatedUser) => {
+    if(err) {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    } else {
+      res.json(updatedUser);
+    }
+  });
+});
+
 app.put('/account/:userId', (_req, res) => {
   res.send('Ready to update user id:')
 });
 
-app.post('/account/movies/:movieId', (_req, res) => {
-  res.send('movie added to favorites')
+app.post('/users/:Username/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
+    $push: { FavoriteMovies: req.params.MovieID }
+  },
+  { new: true },
+  (err, updatedUser) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    } else {
+      res.json(updatedUser);
+    }
+  });
 });
 
 app.delete('/account/movies/:movieId', (_req, res) => {
