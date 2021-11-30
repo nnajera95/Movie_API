@@ -51,35 +51,35 @@
         <td>res.send('returns data about a director')</td>
       </tr>
       <tr>
-        <td> /register </td>
+        <td> /users </td>
         <td>this endpoint will allow a new user to register for an account</td>
         <td>post</td>
         <td>{"newUser": "user information"}</td>
         <td>res.send('ready to add user')</td>
       </tr>
       <tr>
-        <td> /account/[userId]</td>
+        <td> /users/Username</td>
         <td>this endpoint will return a users account information and allow them to update it</td>
         <td>put</td>
         <td>{"UserId": "new userName"}</td>
         <td>res.send('Ready to update user id:')</td>
       </tr>
       <tr>
-        <td> /account/movies/movieId </td>
+        <td> /users/:Username/movies/:MovieID </td>
         <td>this endpoint will allow a user to add a movie to their favorites list</td>
         <td>post</td>
         <td>{"favoriteList": "movie to add"}</td>
         <td>res.send('movie added from favorites')</td>
       </tr>
       <tr>
-        <td> /account/movies/movieId </td>
+        <td> /users/:Username/movies/:MovieID </td>
         <td>this endpoint will allow a user to remove a movie to their favorites list</td>
         <td>delete</td>
         <td></td>
         <td>res.send('movie removed from favorites')</td>
       </tr>
       <tr>
-        <td> /account/delete</td>
+        <td> /users/:Username</td>
         <td>this endpoint will give the user the ability to delete their account</td>
         <td>delete</td>
         <td></td>
