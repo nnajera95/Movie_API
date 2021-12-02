@@ -3,6 +3,8 @@ const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
+const Directors = Models.Director;
+const Genre = Models.Genre;
 
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -24,11 +26,18 @@ app.get('/', function(_req, res) {
 });
 
 app.get('/movies', function(_req, res) {
-  res.json(movieArray)
+  Movies.find()
+    .then((movies) => {
+      res.status(201).json(movies);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 });
 
 app.get('/movies/:title', (req, res) => {
-  res.json(movieArray.find((movie) => {
+  res.json(movie.find((movie) => {
     return movie.title.toLowerCase() == req.params.title.toLowerCase();
   }));
 });
