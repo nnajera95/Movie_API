@@ -37,9 +37,14 @@ app.get('/movies', function(_req, res) {
 });
 
 app.get('/movies/:title', (req, res) => {
-  res.json(movie.find((movie) => {
-    return movie.title.toLowerCase() == req.params.title.toLowerCase();
-  }));
+  Movies.findOne({ Title: req.params.Title })
+    .then((movie) => {
+      res.json(movie);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 });
 
 app.get('/genre/:Name', (_req, res) => {
