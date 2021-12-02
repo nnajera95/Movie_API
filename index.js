@@ -15,19 +15,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const movieArray = [
-  {title: 'Tropic Thunder', director: 'Ben Stiller', genre: 'Comedy/Action'},
-  {title: 'Happy Gilmore', director: 'Dennis Dugan', genre: 'Comedy/Romance'},
-  {title: 'Iron Man', director: 'Jon Favreau', genre: 'Action/Adventure'},
-  {title: 'Thor: Ragnarok', director: 'Taika Waititi', genre: 'Action/Adventure'},
-  {title: 'Grown Ups', director: 'Dennis Dugan', genre: 'Comedy/Buddy'},
-  {title: 'The Fast and The Furious', director: 'Rob Cohen', genre: 'Action/Crime'},
-  {title: 'Avengers: Endgame', director: 'Anthony & Joe Russo', genre: 'Action/Sci-fi'},
-  {title: 'Avengers: Infinity War', director: 'Anthony & Joe Russo', genre: 'Action/Sci-fi'},
-  {title: 'Step Brothers', director: 'Adam McKay', genre: 'Comedy'},
-  {title: 'The Other Guys', director: 'Adam McKay', genre: 'Comedy/Action'}
-];
-
 app.use(morgan('common'));
 
 app.use(express.static('public'));
