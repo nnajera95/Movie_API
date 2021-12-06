@@ -36,7 +36,7 @@ app.get('/movies', function(_req, res) {
     });
 });
 
-app.get('/movies/:title', (req, res) => {
+app.get('/movies/:Title', (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
       res.json(movie);
@@ -47,7 +47,7 @@ app.get('/movies/:title', (req, res) => {
     });
 });
 
-app.get('/genre/:Name', (_req, res) => {
+app.get('/genre/:Name', (req, res) => {
   Genre.findOne({ Name: req.params.Name })
     .then((genre) => {
       res.json(genre.Description);
@@ -58,7 +58,7 @@ app.get('/genre/:Name', (_req, res) => {
     });
 });
 
-app.get('/directors/:Name', (_req, res) => {
+app.get('/directors/:Name', (req, res) => {
   Directors.findOne({ Name: req.params.Name })
   .then((director) => {
     res.json(director);
