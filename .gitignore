@@ -2,3 +2,7 @@ node_modules/
 package-lock.json
 package.json
 package.json
+users.json
+movies.json
+genres.json
+directors.json
