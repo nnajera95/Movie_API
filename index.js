@@ -48,7 +48,7 @@ app.get('/movies/:Title', (req, res) => {
 });
 
 app.get('/genre/:Name', (req, res) => {
-  Movies.find({ 'Genre.Name': req.params.Name })
+  Genres.find({ Name: req.params.Name })
     .then((movies) => {
       res.json(movies);
     })
