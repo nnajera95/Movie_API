@@ -37,7 +37,7 @@ app.get('/movies', function(_req, res) {
 });
 
 app.get('/movies/:Title', (req, res) => {
-  Movies.findOne({ title: req.params.Title })
+  Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
       res.json(movie);
     })
