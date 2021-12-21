@@ -37,39 +37,50 @@
         </td>
       </tr>
       <tr>
-        <td> /movies/genre/[genre] </td>
+        <td> /genre/:Name </td>
         <td>this endpoint will return a genre with a list of movies in this category</td>
         <td>get</td>
         <td></td>
-        <td>res.send('returns data about a genre')</td>
+        <td>{"Name": "Science Fiction",
+        "Description": "Science fiction is a genre of speculative fiction that typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life."}</td>
       </tr>
       <tr>
-        <td> /directors/name </td>
+        <td> /directors/:Name </td>
         <td>this endpoint will return data about a director (bio, birth year, death) </td>
         <td>get</td>
         <td></td>
-        <td>res.send('returns data about a director')</td>
+        <td>{"Name": "Adam McKay",
+            "Bio": "Adam McKay is an American film and television director, producer, screenwriter, and comedian.",
+            "Birth": "1968/04/17"}
+        </td>
       </tr>
       <tr>
         <td> /users </td>
         <td>this endpoint will allow a new user to register for an account</td>
         <td>post</td>
         <td>{"newUser": "user information"}</td>
-        <td>res.send('ready to add user')</td>
+        <td>{"user has been added"}</td>
+      </tr>
+      <tr>
+        <td> /users </td>
+        <td>this endpoint will return a list of all users</td>
+        <td>get</td>
+        <td>{User: "Targetmom3"}</td>
+        <td></td>
       </tr>
       <tr>
         <td> /users/Username</td>
         <td>this endpoint will return a users account information and allow them to update it</td>
         <td>put</td>
         <td>{"UserId": "new userName"}</td>
-        <td>res.send('Ready to update user id:')</td>
+        <td>"updated User"</td>
       </tr>
       <tr>
         <td> /users/:Username/movies/:MovieID </td>
         <td>this endpoint will allow a user to add a movie to their favorites list</td>
         <td>post</td>
         <td>{"favoriteList": "movie to add"}</td>
-        <td>res.send('movie added from favorites')</td>
+        <td>res.send('movie added to favorites')</td>
       </tr>
       <tr>
         <td> /users/:Username/movies/:MovieID </td>
