@@ -25,7 +25,22 @@
         <td>this endpoint will return a list of all movies</td>
         <td>get</td>
         <td></td>
-        <td>res.json(movieArray)</td>
+        <td>"Genre": {
+              "Name": "Comedy/Action",
+              "Description": "A comedy film is a category of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."
+              },
+            "Director": {
+              "Name": "Ben Stiller",
+              "Bio": "Benjamin Edward Meara Stiller is an American actor, comedian, producer, film director, and screenwriter.",
+              "Birth": "1965"
+              },
+            "Actors": [],
+            "_id": "61997b594f9acfc5c00bed01",
+            "Title": "Tropic Thunder",
+            "Description": "Through a series of freak occurrences, a group of actors shooting a big-budget was movie are forced to become the soldiers they are portraying.",
+            "ImagePath": "TropicThunder.png",
+            "Featured": true
+      </td>
       </tr>
       <tr>
         <td> /movies/[title] </td>
@@ -58,18 +73,34 @@
         <td> /users </td>
         <td>this endpoint will allow a new user to register for an account</td>
         <td>post</td>
-        <td>{"newUser": "user information"}</td>
-        <td>{"user has been added"}</td>
+        <td>{"newUser": "Username:", "Password:", "email:", "Birthday:"}</td>
+        <td>{"Username": "Testuser1995",
+            "Password": "Testpassword301",
+            "Email": "testuser102@gmail.com",
+            "Birthday": "1995-09-02T05:00:00.000Z",
+            "FavoriteMovies": [],
+            "_id": "61c23cd3f1200ea1a50d05a6",
+            "__v": 0}
+        </td>
       </tr>
       <tr>
-        <td> /users </td>
-        <td>this endpoint will return a list of all users</td>
+        <td> /users/:Username </td>
+        <td>this endpoint will return a specific user that was searched</td>
         <td>get</td>
-        <td>{User: "Targetmom3"}</td>
         <td></td>
+        <td> "_id": "6199882f4f9acfc5c00bed0d",
+             "Username": "Targetmom3",
+             "Password": "Shoptillidrop",
+             "Email": "momwholovestarget@gmail.com",
+             "Birthday": "1976-04-25T00:00:00.000Z",
+             "FavoriteMovies": [
+                "61997b594f9acfc5c00bed01",
+                "619983624f9acfc5c00bed0a",
+                "6199835c4f9acfc5c00bed09"]
+        </td>
       </tr>
       <tr>
-        <td> /users/Username</td>
+        <td> /users/:Username</td>
         <td>this endpoint will return a users account information and allow them to update it</td>
         <td>put</td>
         <td>{"UserId": "new userName"}</td>
@@ -79,22 +110,36 @@
         <td> /users/:Username/movies/:MovieID </td>
         <td>this endpoint will allow a user to add a movie to their favorites list</td>
         <td>post</td>
-        <td>{"favoriteList": "movie to add"}</td>
-        <td>res.send('movie added to favorites')</td>
+        <td>User: "Targetmom3", movieId: "619982d24f9acfc5c00bed03"</td>
+        <td>
+            "Username": "Targetmom3",
+            "FavoriteMovies": [
+              "61997b594f9acfc5c00bed01",
+              "619983624f9acfc5c00bed0a",
+              "6199835c4f9acfc5c00bed09",
+              "619982d24f9acfc5c00bed03",
+              "619982d24f9acfc5c00bed03"
+    ]</td>
       </tr>
       <tr>
         <td> /users/:Username/movies/:MovieID </td>
         <td>this endpoint will allow a user to remove a movie to their favorites list</td>
         <td>delete</td>
-        <td></td>
-        <td>res.send('movie removed from favorites')</td>
+        <td>User: "Targetmom3", movieId: "619982d24f9acfc5c00bed03"</td>
+        <td>
+            "Username": "Targetmom3",
+            "FavoriteMovies": [
+              "61997b594f9acfc5c00bed01",
+              "619983624f9acfc5c00bed0a",
+              "6199835c4f9acfc5c00bed09",
+        </td>
       </tr>
       <tr>
         <td> /users/:Username</td>
         <td>this endpoint will give the user the ability to delete their account</td>
         <td>delete</td>
-        <td></td>
-        <td>res.send('account deleted')</td>
+        <td>User: "Testuser1995"</td>
+        <td>Testuser1995 was deleted</td>
       </tr>
     </table>
   </body>
