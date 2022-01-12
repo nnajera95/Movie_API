@@ -6,3 +6,5 @@ users.json
 movies.json
 genres.json
 directors.json
+package-lock.json
+package.json
