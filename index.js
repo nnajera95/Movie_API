@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let auth = require('./auth')(app);
+
 const passport = require('passport');
 require('./passport');
 
@@ -29,7 +30,7 @@ app.get('/', function(_req, res) {
   res.send('Welcome to my app!');
 });
 
-app.get('/movies', function(_req, res) {
+app.get('/movies', passport.authenticate('jwt', { session: false }), function(_req, res) {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
