@@ -13,7 +13,7 @@ let generateJWTToken = (user) => {
   });
 }
 
-moudle.exports = (router) => {
+module.exports = (router) => {
   router.post('/login', (req, res) => {
     passport.authenticate('local', { session: false }, (error, user, _info) => {
       if (error || !user) {
@@ -26,7 +26,7 @@ moudle.exports = (router) => {
         if (error) {
           res.send(error);
         }
-        let token = genereateJWTToken(user.toJSON());
+        let token = generateJWTToken(user.toJSON());
         return res.json({ user, token});
       });
     })(req, res);
